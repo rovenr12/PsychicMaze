@@ -16,6 +16,12 @@ public class MentalHealth : MonoBehaviour {
     [SerializeField] float shakingDuration = 1f;
     [SerializeField] float shakingMagnitude = 0.4f;
 
+    [SerializeField] Gradient colorsForWall;
+    [SerializeField] Material wallMaterial;
+
+    [SerializeField] GameObject ghost;
+    [SerializeField] float jumpScareFrequency = 5f;
+
     float dps;
     bool triggerShaking = false;
     // Start is called before the first frame update
@@ -23,11 +29,13 @@ public class MentalHealth : MonoBehaviour {
         health = maxHealth;
         dps = health / timeLimitation;
         InvokeRepeating(nameof(DecreaseHealthByTime), 1, 1);
+        InvokeRepeating(nameof(JumpScare), jumpScareFrequency, jumpScareFrequency);
     }
 
     // Update is called once per frame
     void FixedUpdate() {
         ChangeVisualization();
+        wallMaterial.color = colorsForWall.Evaluate(GetNormalizedHealth());
     }
     
     public void AddHealth(float amount) {
@@ -59,6 +67,12 @@ public class MentalHealth : MonoBehaviour {
     
     void Shaking() {
         StartCoroutine(cameraEffect.Shake(shakingDuration, shakingMagnitude));
+    }
+    
+    void JumpScare() {
+        if (IsAlive()) {
+            ghost.gameObject.SetActive(true);
+        }
     }
     
     void ChangeVisualization() {
