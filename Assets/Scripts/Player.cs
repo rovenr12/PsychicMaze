@@ -13,11 +13,6 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update() {
     }
+    
 
-    void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag.Equals("Angel")) {
-            mentalHealth.AddHealth(other.GetComponent<Angel>().HealthPoints);
-            Destroy(other.gameObject);
-        }
-    }
 }
