@@ -17,7 +17,7 @@ public class MentalHealth : MonoBehaviour {
     [SerializeField] float shakingMagnitude = 0.4f;
 
     float dps;
-    [SerializeField] bool triggerShaking = false;
+    bool triggerShaking = false;
     // Start is called before the first frame update
     void Start() {
         health = maxHealth;
