@@ -9,6 +9,7 @@ public class MentalHealth : MonoBehaviour {
 
     [SerializeField] int timeLimitation = 60;
     [SerializeField] Image crackImage;
+    [SerializeField] Image secondImage;
     [SerializeField] Image holeImage;
 
     [SerializeField] CameraEffect cameraEffect;
@@ -18,9 +19,13 @@ public class MentalHealth : MonoBehaviour {
 
     [SerializeField] Gradient colorsForWall;
     [SerializeField] Material wallMaterial;
+    [SerializeField] Material wallMaterial2;
 
     [SerializeField] GameObject ghost;
     [SerializeField] float jumpScareFrequency = 5f;
+
+    [SerializeField] LevelManager levelManager;
+    [SerializeField] GameObject LoseCanvas;
 
     float dps;
     bool triggerShaking = false;
@@ -34,8 +39,21 @@ public class MentalHealth : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
+        if (levelManager.IsGameOver()) {
+            if (triggerShaking) {
+                triggerShaking = false;
+                CancelInvoke(nameof(Shaking));
+            }
+            return;
+        }
+
+        if (!IsAlive()) {
+            levelManager.GameOver();
+            LoseCanvas.SetActive(true);
+        }
         ChangeVisualization();
         wallMaterial.color = colorsForWall.Evaluate(GetNormalizedHealth());
+        wallMaterial2.color = colorsForWall.Evaluate(GetNormalizedHealth());
     }
     
     public void AddHealth(float amount) {
@@ -55,7 +73,7 @@ public class MentalHealth : MonoBehaviour {
     }
     
     void DecreaseHealthByTime() {
-        if (IsAlive()) {
+        if (IsAlive() && !levelManager.IsGameOver()) {
             DecreaseHealth(dps);
         } else {
             CancelInvoke(nameof(DecreaseHealthByTime));
@@ -70,7 +88,7 @@ public class MentalHealth : MonoBehaviour {
     }
     
     void JumpScare() {
-        if (IsAlive()) {
+        if (IsAlive() && !levelManager.IsGameOver()) {
             ghost.gameObject.SetActive(true);
         }
     }
@@ -92,6 +110,14 @@ public class MentalHealth : MonoBehaviour {
             }
         } else {
             crackImage.enabled = false;
+        }
+        
+        if (healthPercentage < 0.4) {
+            if (!secondImage.enabled) {
+                secondImage.enabled = true;
+            }
+        } else {
+            secondImage.enabled = false;
         }
         
         if (healthPercentage < 0.2) {

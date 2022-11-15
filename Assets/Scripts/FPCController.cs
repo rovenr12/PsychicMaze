@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FPCController : MonoBehaviour {
-  
+
+    [SerializeField] LevelManager levelManager;
     [SerializeField] Camera camera;
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] float verticalRange = 45f;
@@ -26,6 +27,9 @@ public class FPCController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (levelManager.IsGameOver()) {
+            return;
+        }
         Move();
         RotatePlayer();
     }

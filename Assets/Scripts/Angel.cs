@@ -31,4 +31,8 @@ public class Angel : MonoBehaviour {
         GetComponent<Renderer>().material.color =
             new Color(originalColor.r, originalColor.g, originalColor.b, newAlpha);
     }
+
+    void OnDestroy() {
+        throw new NotImplementedException();
+    }
 }
