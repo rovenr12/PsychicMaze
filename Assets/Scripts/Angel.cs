@@ -33,6 +33,6 @@ public class Angel : MonoBehaviour {
     }
 
     void OnDestroy() {
-        throw new NotImplementedException();
+        // throw new NotImplementedException();
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,8 +33,16 @@ public class FPCController : MonoBehaviour {
         }
         Move();
         RotatePlayer();
+        AdjustHeight();
     }
-    
+
+    void AdjustHeight() {
+        float currentY = gameObject.transform.position.y;
+        if (Math.Abs(currentY - 1.58f) > 0.001f) {
+            controller.Move(new Vector3(0, currentY - 1.58f, 0));
+        }
+    }
+
     void Move() {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");

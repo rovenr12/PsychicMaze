@@ -1461,10 +1461,46 @@ PrefabInstance:
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 135772815}
+    - target: {fileID: 2581187360913245028, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
+      propertyPath: timeLimitation
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581187360913245029, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581187360913245029, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581187360913245029, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581187360913245030, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581187360913245030, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2581187360913245030, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 135772815}
+    - target: {fileID: 2581187360913245031, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581187360913245031, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
+      propertyPath: m_SlopeLimit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581187360913245031, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
+      propertyPath: m_StepOffset
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
 --- !u!1001 &7855931449065886167

@@ -26,4 +26,8 @@ public class Ghost : MonoBehaviour {
             gameObject.SetActive(false);
         }
     }
+
+    public void FixPointScare() {
+        throw new NotImplementedException();
+    }
 }
