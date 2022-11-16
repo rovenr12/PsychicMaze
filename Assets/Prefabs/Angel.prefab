@@ -213,8 +213,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa079ed0ee8fee74c8d2e7bf94dbb1bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 50
+  healthPoints: 30
   destroyTime: 0.5
+  itemManager: {fileID: 0}
 --- !u!114 &5427172628822747283
 MonoBehaviour:
   m_ObjectHideFlags: 0
