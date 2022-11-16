@@ -1293,7 +1293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  player: {fileID: 438065794}
+  player: {fileID: 1955688142}
   speed: 13
 --- !u!4 &1967422888
 Transform:
