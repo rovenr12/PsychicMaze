@@ -884,7 +884,7 @@ MonoBehaviour:
   width: 30
   depth: 30
   scale: 7
-  angelAmount: 10
+  angelAmount: 20
   straight: {fileID: 2736048072378105014, guid: e3b0648284ef34a08a0d831a0b2beccf, type: 3}
   corner: {fileID: 44233997584509520, guid: d45439087236e41d1a2c636579cdeb0b, type: 3}
   crossroad: {fileID: 3622574584104108003, guid: dac0b500e548e4dbbbc097ffafce742e, type: 3}
@@ -1164,13 +1164,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1967422888}
   - component: {fileID: 1967422887}
+  - component: {fileID: 1967422889}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1967422887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1185,7 +1186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   player: {fileID: 438065794}
-  speed: 10
+  speed: 15
 --- !u!4 &1967422888
 Transform:
   m_ObjectHideFlags: 0
@@ -1202,6 +1203,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1967422889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967422886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -840553217
+      Data2: 1337424018
+      Data3: -1008932454
+      Data4: -677410194
+    Path: event:/Ghost
+  Event: 
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &2032024516
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,34 +1392,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 347480826090533424, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
-      propertyPath: m_Range
-      value: 11.514149
-      objectReference: {fileID: 0}
-    - target: {fileID: 347480826090533424, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
-      propertyPath: m_Color.b
-      value: 0.82961017
-      objectReference: {fileID: 0}
-    - target: {fileID: 347480826090533424, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
-      propertyPath: m_Color.g
-      value: 0.9331883
-      objectReference: {fileID: 0}
-    - target: {fileID: 347480826090533424, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
-      propertyPath: m_Color.r
-      value: 0.9716981
-      objectReference: {fileID: 0}
-    - target: {fileID: 347480826090533424, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
-      propertyPath: m_Intensity
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 347480826090533424, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
-      propertyPath: m_SpotAngle
-      value: 49.330418
-      objectReference: {fileID: 0}
-    - target: {fileID: 2581187360385610902, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2581187360913245024, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1461,49 +1464,13 @@ PrefabInstance:
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 135772815}
-    - target: {fileID: 2581187360913245028, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
-      propertyPath: timeLimitation
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 2581187360913245028, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
-      propertyPath: jumpScareFrequency
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2581187360913245029, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2581187360913245029, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2581187360913245029, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2581187360913245030, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
-      propertyPath: speed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2581187360913245030, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2581187360913245030, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 135772815}
-    - target: {fileID: 2581187360913245031, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2581187360913245031, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
-      propertyPath: m_SlopeLimit
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2581187360913245031, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
-      propertyPath: m_StepOffset
-      value: 0
+    - target: {fileID: 2581187360913245030, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
+      propertyPath: footstepSpeed
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}

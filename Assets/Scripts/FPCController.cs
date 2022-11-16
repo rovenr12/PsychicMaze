@@ -10,8 +10,11 @@ public class FPCController : MonoBehaviour {
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] float verticalRange = 45f;
     [SerializeField] float speed = 12f;
+    [SerializeField] float footstepSpeed = 0.3f;
 
     CharacterController controller;
+    FMOD.Studio.EventInstance footsteps;
+    float timer = 0.0f;
 
     float xRotation = 0f;
 
@@ -46,6 +49,14 @@ public class FPCController : MonoBehaviour {
     void Move() {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+        if (x != 0 || z != 0) {
+            if (timer > footstepSpeed) {
+                PlayFootstep();
+                timer = 0.0f;
+            }
+
+            timer += Time.deltaTime;
+        }
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
     }
@@ -59,5 +70,11 @@ public class FPCController : MonoBehaviour {
 
         camera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
+    }
+
+    void PlayFootstep() {
+        footsteps = FMODUnity.RuntimeManager.CreateInstance("event:/Footsteps");
+        footsteps.start();
+        footsteps.release();
     }
 }

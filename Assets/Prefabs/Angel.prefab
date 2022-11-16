@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 353854777115220803}
   - component: {fileID: 353854777115220800}
   - component: {fileID: 353854777115220828}
+  - component: {fileID: 5427172628822747283}
   m_Layer: 7
   m_Name: Angel
   m_TagString: Angel
@@ -214,3 +215,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPoints: 50
   destroyTime: 0.5
+--- !u!114 &5427172628822747283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587804250941729017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1498977587
+      Data2: 1292855707
+      Data3: 813694089
+      Data4: -954910525
+    Path: event:/Heartbeat_MM
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
