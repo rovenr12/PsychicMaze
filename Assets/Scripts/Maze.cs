@@ -36,6 +36,11 @@ public class Maze : MonoBehaviour {
         PlaceEndPoint();
     }
 
+    public int GetNumberOfAngels()
+    {
+        return angelAmount;
+    }
+
     void PlaceNPC() {
         for (int z = 0; z < depth; z++) {
             for (int x = 0; x < width; x++) {
