@@ -27,6 +27,8 @@ public class MentalHealth : MonoBehaviour {
     [SerializeField] LevelManager levelManager;
     [SerializeField] GameObject LoseCanvas;
 
+    [SerializeField] GameObject deadAudio;
+
     float dps;
     bool triggerShaking = false;
     // Start is called before the first frame update
@@ -50,6 +52,7 @@ public class MentalHealth : MonoBehaviour {
         if (!IsAlive()) {
             levelManager.GameOver();
             LoseCanvas.SetActive(true);
+            deadAudio.SetActive(true);
         }
         ChangeVisualization();
         wallMaterial.color = colorsForWall.Evaluate(GetNormalizedHealth());

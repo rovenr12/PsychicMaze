@@ -28,6 +28,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 145500
+--- !u!114 &-5778245472085108822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Death
+  m_EditorClassIdentifier: 
+  Path: event:/Death
+  Guid:
+    Data1: -988677286
+    Data2: 1080740510
+    Data3: -1801763184
+    Data4: -745819138
+  Banks:
+  - {fileID: 9073932800772199653}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5124
 --- !u!114 &-536347408472733330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,12 +103,14 @@ MonoBehaviour:
   - {fileID: -7959094054614275488}
   - {fileID: 2374373621409255736}
   - {fileID: 6968378967403602438}
+  - {fileID: 8155695717863972850}
+  - {fileID: -5778245472085108822}
   EditorParameters: []
   MasterBanks:
   - {fileID: 9073932800772199653}
   StringsBanks:
   - {fileID: 4565085313602448789}
-  cacheTime: 638041972633510967
+  cacheTime: 638042001596193907
   cacheVersion: 131593
 --- !u!114 &2374373621409255736
 MonoBehaviour:
@@ -176,10 +205,10 @@ MonoBehaviour:
   Path: ../MentalMaze/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638041972633510967
+  lastModified: 638042001596193907
   FileSizes:
   - Name: Desktop
-    Value: 986
+    Value: 1066
   Exists: 1
 --- !u!114 &6968378967403602438
 MonoBehaviour:
@@ -208,6 +237,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 5500
+--- !u!114 &8155695717863972850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ghost2
+  m_EditorClassIdentifier: 
+  Path: event:/Ghost2
+  Guid:
+    Data1: 1987954642
+    Data2: 1230086666
+    Data3: -1723030360
+    Data4: 106607667
+  Banks:
+  - {fileID: 9073932800772199653}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3000
 --- !u!114 &9073932800772199653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,8 +279,8 @@ MonoBehaviour:
   Path: ../MentalMaze/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638041972633500944
+  lastModified: 638042001596168800
   FileSizes:
   - Name: Desktop
-    Value: 5733440
+    Value: 5808160
   Exists: 1

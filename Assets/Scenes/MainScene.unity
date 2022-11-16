@@ -803,6 +803,68 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1263603657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1263603658}
+  - component: {fileID: 1263603659}
+  m_Layer: 3
+  m_Name: DeadSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1263603658
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263603657}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 438065795}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1263603659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263603657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -988677286
+      Data2: 1080740510
+      Data3: -1801763184
+      Data4: -745819138
+    Path: event:/Death
+  Event: 
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1568026661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1232,7 +1294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   player: {fileID: 438065794}
-  speed: 15
+  speed: 13
 --- !u!4 &1967422888
 Transform:
   m_ObjectHideFlags: 0
@@ -1264,11 +1326,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -840553217
-      Data2: 1337424018
-      Data3: -1008932454
-      Data4: -677410194
-    Path: event:/Ghost
+      Data1: 1987954642
+      Data2: 1230086666
+      Data3: -1723030360
+      Data4: 106607667
+    Path: event:/Ghost2
   Event: 
   PlayEvent: 11
   StopEvent: 12
@@ -1491,6 +1553,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1967422886}
     - target: {fileID: 2581187360913245028, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
+      propertyPath: deadAudio
+      value: 
+      objectReference: {fileID: 1263603657}
+    - target: {fileID: 2581187360913245028, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
       propertyPath: holeImage
       value: 
       objectReference: {fileID: 1654135817}
@@ -1517,6 +1583,10 @@ PrefabInstance:
     - target: {fileID: 2581187360913245030, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
       propertyPath: footstepSpeed
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581187360913245030, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
+      propertyPath: verticalRange
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
