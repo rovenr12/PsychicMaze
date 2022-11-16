@@ -1509,7 +1509,11 @@ PrefabInstance:
       objectReference: {fileID: 135772815}
     - target: {fileID: 2581187360913245028, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
       propertyPath: timeLimitation
-      value: 600
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581187360913245028, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
+      propertyPath: jumpScareFrequency
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2581187360913245029, guid: f39fd97aef0bc7d45bb50bea5a340601, type: 3}
       propertyPath: m_UseGravity
