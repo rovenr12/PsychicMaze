@@ -6,23 +6,19 @@ using UnityEngine;
 public class Angel : MonoBehaviour {
     [SerializeField] int healthPoints;
     [SerializeField] float destroyTime = 5f;
-    [SerializeField] ItemManager itemManager;
     bool onDelete = false;
-    
+
     void OnCollisionEnter(Collision collision) {
         if (onDelete) return;
         GameObject player = collision.gameObject;
         if (player.tag.Equals("Player")) {
             player.GetComponent<MentalHealth>().AddHealth(healthPoints);
-            itemManager.ReduceNumOfAngel();
             onDelete = true;
             Destroy(gameObject, destroyTime);
         }
     }
 
-    void Start()
-    {
-        itemManager = FindObjectOfType<ItemManager>();
+    void Start() {
     }
 
     void Update() {

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 
 public class Maze : MonoBehaviour {
@@ -14,7 +16,6 @@ public class Maze : MonoBehaviour {
     [SerializeField] GameObject end;
     [SerializeField] GameObject tJunction;
     [SerializeField] GameObject player;
-    [SerializeField] GameObject angel;
     [SerializeField] GameObject endPoint;
 
     List<MapLocation> directions = new() {
@@ -25,7 +26,8 @@ public class Maze : MonoBehaviour {
     };
 
     byte[,] map;
-    List<MapLocation> deadEnds = new();
+    List<GameObject> deadEnds = new();
+    Vector3 playerLoc;
 
     void Start() {
         InitialiseMap();
@@ -45,7 +47,8 @@ public class Maze : MonoBehaviour {
         for (int z = 0; z < depth; z++) {
             for (int x = 0; x < width; x++) {
                 if (map[x, z] == 0) {
-                    player.transform.position = new Vector3(x * scale, 1f, z * scale);
+                    playerLoc = new Vector3(x * scale, 1.58f, z * scale);
+                    player.transform.position = playerLoc;
                     return;
                 }
             }
@@ -64,19 +67,24 @@ public class Maze : MonoBehaviour {
     }
 
     void PlaceAngels() {
-        if (angelAmount >= deadEnds.Count) {
-            foreach (MapLocation loc in deadEnds) {
-                Instantiate(angel, new Vector3(loc.x * scale, 0f, loc.z * scale), Quaternion.identity);
+        if (angelAmount >= deadEnds.Count + 1) {
+            foreach (GameObject deadEnd in deadEnds) {
+                if (Math.Abs(deadEnd.transform.position.x - playerLoc.x) < 0.05f && Math.Abs(deadEnd.transform.position.z - playerLoc.z) < 0.05f) {
+                    continue;
+                }
+                deadEnd.GetComponent<AngelController>().ActivateAngel();
             }
 
             angelAmount = deadEnds.Count;
         } else {
             for (int i = 0; i < angelAmount; i++) {
                 int idx = Random.Range(0, deadEnds.Count);
-                MapLocation loc = deadEnds[idx];
-                GameObject instantiate = Instantiate(angel, new Vector3(loc.x * scale, 0f, loc.z * scale), Quaternion.identity);
-                instantiate.transform.Rotate(new Vector3(-90, 0, 0));
-                deadEnds.RemoveAt(idx);
+                GameObject deadEnd = deadEnds[idx];
+                if (Math.Abs(deadEnd.transform.position.x - playerLoc.x) < 0.05f && Math.Abs(deadEnd.transform.position.z - playerLoc.z) < 0.05f) {
+                    deadEnds.RemoveAt(idx);
+                    continue;
+                }
+                deadEnd.GetComponent<AngelController>().ActivateAngel();
             }
         }
     }
@@ -140,25 +148,26 @@ public class Maze : MonoBehaviour {
     }
 
     bool PlaceDeadEnd(int x, int z, Vector3 pos) {
+        GameObject instantiate;
         if (Search2D(x, z, new[] {5, 1, 5, 0, 0, 1, 5, 1, 5})) {
-            GameObject instantiate = Instantiate(end, pos, Quaternion.identity);
+            instantiate = Instantiate(end, pos, Quaternion.identity);
             instantiate.transform.Rotate(0, 90, 0);
         } else if (Search2D(x, z, new[] {5, 1, 5, 1, 0, 0, 5, 1, 5})) {
-            GameObject instantiate = Instantiate(end, pos, Quaternion.identity);
+            instantiate = Instantiate(end, pos, Quaternion.identity);
             instantiate.transform.Rotate(0, -90, 0);
         } else if (Search2D(x, z, new[] {5, 1, 5, 1, 0, 1, 5, 0, 5})) {
-            Instantiate(end, pos, Quaternion.identity);
+            instantiate = Instantiate(end, pos, Quaternion.identity);
         } else if (Search2D(x, z, new[] {5, 0, 5, 1, 0, 1, 5, 1, 5})) {
-            GameObject instantiate = Instantiate(end, pos, Quaternion.identity);
+            instantiate = Instantiate(end, pos, Quaternion.identity);
             instantiate.transform.Rotate(0, 180, 0);
         } else if (Search2D(x, z, new[] {5, 0, 5, 1, 0, 1, 5, 1, 5})) {
-            GameObject instantiate = Instantiate(end, pos, Quaternion.identity);
+            instantiate = Instantiate(end, pos, Quaternion.identity);
             instantiate.transform.Rotate(0, 180, 0);
         } else {
             return false;
         }
 
-        deadEnds.Add(new MapLocation(x, z));
+        deadEnds.Add(instantiate);
         return true;
     }
 
