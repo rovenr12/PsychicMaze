@@ -17,6 +17,7 @@ public class Maze : MonoBehaviour {
     [SerializeField] GameObject tJunction;
     [SerializeField] GameObject player;
     [SerializeField] GameObject endPoint;
+    [SerializeField] GameObject wall;
 
     List<MapLocation> directions = new() {
         new MapLocation(1, 0),
@@ -120,7 +121,8 @@ public class Maze : MonoBehaviour {
                 if (PlaceCrossRoad(x, z, pos)) continue;
                 if (PlaceDeadEnd(x, z, pos)) continue;
                 if (PlaceCorner(x, z, pos)) continue;
-                PlaceTJunction(x, z, pos);
+                if (PlaceTJunction(x, z, pos)) continue;
+                Instantiate(wall, pos, Quaternion.identity);
             }
         }
     }

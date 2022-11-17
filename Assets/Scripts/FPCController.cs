@@ -11,12 +11,14 @@ public class FPCController : MonoBehaviour {
     [SerializeField] float verticalRange = 45f;
     [SerializeField] float speed = 12f;
     [SerializeField] float footstepSpeed = 0.3f;
+    [SerializeField] Rigidbody rigidBody;
 
     CharacterController controller;
     FMOD.Studio.EventInstance footsteps;
     float timer = 0.0f;
 
     float xRotation = 0f;
+    float yRotation = 0f;
 
     // Start is called before the first frame update
     void Start() {
@@ -30,13 +32,14 @@ public class FPCController : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
         if (levelManager.IsGameOver()) {
             return;
         }
-        Move();
         RotatePlayer();
-        AdjustHeight();
+        Move();
+        
+        // AdjustHeight();
     }
 
     void AdjustHeight() {
@@ -56,25 +59,41 @@ public class FPCController : MonoBehaviour {
             }
 
             timer += Time.deltaTime;
+            Vector3 move = transform.right * x + transform.forward * z;
+            // transform.Translate(move * speed * Time.deltaTime);
+            rigidBody.velocity = move * speed;
         }
-        Vector3 move = transform.right * x + transform.forward * z;
-        controller.Move(move * speed * Time.deltaTime);
+        else {
+            rigidBody.velocity = new Vector3(0, 0, 0);
+        }
+        
+        // controller.Move(move * speed * Time.deltaTime);
     }
 
     void RotatePlayer() {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
+        yRotation += mouseX;
         xRotation -= mouseY;
+        
         xRotation = Mathf.Clamp(xRotation, -verticalRange, verticalRange);
 
         camera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        transform.Rotate(Vector3.up * mouseX);
+        transform.rotation = Quaternion.Euler(0, yRotation, 0);
+        // transform.rotation = Quaternion.Euler(0, yRotation, 0);
+        
     }
 
     void PlayFootstep() {
         footsteps = FMODUnity.RuntimeManager.CreateInstance("event:/Footsteps");
         footsteps.start();
         footsteps.release();
+    }
+
+    void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.tag.Equals("Wall")) {
+            rigidBody.velocity = new Vector3(0, 0, 0);
+        }
     }
 }

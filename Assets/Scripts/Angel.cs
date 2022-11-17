@@ -6,6 +6,7 @@ using UnityEngine;
 public class Angel : MonoBehaviour {
     [SerializeField] int healthPoints;
     [SerializeField] float destroyTime = 5f;
+    [SerializeField] AudioSource angelSound;
     bool onDelete = false;
 
     void OnCollisionEnter(Collision collision) {
@@ -24,6 +25,7 @@ public class Angel : MonoBehaviour {
     void Update() {
         if (onDelete) {
             FadingObject();
+            angelSound.Play();
         }
     }
 

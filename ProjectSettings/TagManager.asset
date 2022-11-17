@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Angel
   - FixedPointGhost
+  - Wall
   layers:
   - Default
   - TransparentFX
