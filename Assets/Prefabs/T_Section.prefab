@@ -1594,6 +1594,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost For CrossRoad
       objectReference: {fileID: 0}
+    - target: {fileID: 3214696475458979310, guid: 6970a19773644dc4da72b674afcb9ed9, type: 3}
+      propertyPath: m_Radius
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6358916312149465852, guid: 6970a19773644dc4da72b674afcb9ed9, type: 3}
       propertyPath: m_RootOrder
       value: 7

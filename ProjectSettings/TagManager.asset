@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Angel
+  - FixedPointGhost
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - MiniMap
   - Pickups
   - Finish
-  - 
+  - Post Procesing
   - 
   - 
   - 

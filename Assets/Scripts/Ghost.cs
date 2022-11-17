@@ -8,6 +8,7 @@ public class Ghost : MonoBehaviour {
     [SerializeField] GameObject player;
     [SerializeField] GameObject end;
     [SerializeField] float speed = 10f;
+    [SerializeField] LevelManager levelManager;
 
     void Start() {
         
@@ -20,6 +21,10 @@ public class Ghost : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (levelManager.IsGameOver()) {
+            gameObject.SetActive(false);
+            return;
+        }
         transform.LookAt(player.transform);
         transform.position = Vector3.MoveTowards(transform.position, end.transform.position, Time.deltaTime * speed);
 

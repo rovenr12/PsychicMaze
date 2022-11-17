@@ -1094,6 +1094,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1779045572549543896}
     m_Modifications:
+    - target: {fileID: 1260461319387839317, guid: b33ddf0686f56cd449cee493259853ff, type: 3}
+      propertyPath: m_Radius
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4496790070531033836, guid: b33ddf0686f56cd449cee493259853ff, type: 3}
       propertyPath: m_Name
       value: Ghost
